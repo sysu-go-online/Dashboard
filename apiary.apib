@@ -112,7 +112,7 @@ Add a new project
     
             {
                 "username": "golang",
-                "project_name": "golang_test",
+                "projectName": "golang_test",
                 "type": 1
             }
 
@@ -122,6 +122,26 @@ Add a new project
                 "error": false,
                 "msg": ""
             }
+            
+### Get project by userid [GET /projects?userID={userID}]
+
+Get all the projects by given user id
+
++ Parameters
+    + userID: `2` (number) - Specified the user id
+    
++ Response 200 (application/json)
+
+        {
+            "content": [
+                    "projectID": 123,
+                    "projectName": "golang_test",
+                    "userID": 1,
+                    "language": 0
+            ]
+        }
+
++ Response 204
             
 ## Command Collection [/ws]
 
