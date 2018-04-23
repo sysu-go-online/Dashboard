@@ -67,13 +67,21 @@ Upload file content with given file path
 
 + Response 200
 
-+ Create new file [PUT /{projectid}/tree/{filepath}]
+### Create new file [PUT /{projectid}/tree/{filepath}]
 
 Create a new file with given path
 
 + Parameters
     + projectid: 1 (string) - Specified the project id
     + filepath: "a/b/a" (string) - Specified the relative path with the project root
+
++ Request
+
+    + Body
+    
+            {
+                "dir": true
+            }
     
 + Response 200
 
@@ -85,7 +93,7 @@ Delete file content with given file path
     + projectid: 1 (string) - Specified the project id
     + filepath: "a/b/a" (string) - Specified the relative path with the project root
     
-# Response 200
++ Response 200
 
 ## Command Collection [/ws]
 
