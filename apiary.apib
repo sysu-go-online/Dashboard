@@ -4,15 +4,87 @@ HOST: http://go-online/api
 # go-online
 
 go-online is a simple online application which allows people code, run and test anywhere.
- 
-## Project Collection [/{projectname}]
 
-### Get project file structure [GET /{projectid}]
+## User Collection [/users]
+
+### Create user [POST /users]
+
++ Request
+
+        + body (application/json)
+        
+                {
+                    "name": "username",
+                    "githubURL": "https://url",
+                    "email": "user@go-online.com"
+                }
+
++ Response 200
+
+### Get user message [GET /users/{username}]
+
++ Response 200 (application/json)
+
+        {
+            "name": "username",
+            "githubURL": "https://url",
+            "email": "user@gmail.com",
+            "gender": 0,
+            "age": 18
+        }
+
++ Response 204
+
+### Update user message [PATCH /user/{username}]
+
++ Request
+    
+        + body (application/json)
+        
+                {
+                    "gender": 1,
+                    "age": 19
+                }
+                
++ Response 200
+
++ Response 204
+
+## Project Collection [/users/{username}/projects]
+
+### Create project [POST /users/{username}/projects]
+
++ Request
+
+        + body (application/json)
+    
+                {
+                    "name": "projectName",
+                    "language": 1
+                }
+                
++ Response 200 (application/json)
+
+
+### List projects [GET /users/{username}/projects]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "projectname",
+                "language": 1
+            }
+        ]
+        
++ Response 204
+
+
+## File Collection [/users/{username}/projects/{projectname}/files]
+
+### Get file structure [GET /users/{username}/projects/{projectname}/files]
 
 Get file structure with given projectid
-
-+ Parameters
-    + projectid: 1 (string) - Specified the project id
     
 + Response 200 (application)
 
@@ -38,25 +110,23 @@ Get file structure with given projectid
                 ]
             }
         ]
-        
-### Get file content [GET /{projectid}/tree/{filepath}]
+
+### Get file content [GET /users/{username}/projects/{projectname}/files/{filepath}]
 
 Get file content with given and file path
 
 + Parameters
-    + projectid: 1 (string) - Specified the project id
     + filepath: "a/b/a" (string) - Specified the relative path with the project root
     
 + Response 200 (plain/text)
 
         "Here is the content of the required file"
         
-### Upload file content [POST /{projectid}/tree/{filepath}]
+### Upload file content [PATCH /users/{username}/projects/{projectname}/files/{filepath}]
 
 Upload file content with given file path
 
 + Parameters
-    + projectid: 1 (string) - Specified the project id
     + filepath: "a/b/a" (string) - Specified the relative path with the project root
    
 + Request
@@ -67,12 +137,11 @@ Upload file content with given file path
 
 + Response 200
 
-### Create new file [PUT /{projectid}/tree/{filepath}]
+### Create new file [POST /users/{username}/projects/{projectname}/files/{filepath}]
 
 Create a new file with given path
 
 + Parameters
-    + projectid: 1 (string) - Specified the project id
     + filepath: "a/b/a" (string) - Specified the relative path with the project root
 
 + Request
@@ -85,12 +154,11 @@ Create a new file with given path
     
 + Response 200
 
-### Delete file [DELETE /{projectid}/tree}/{filepath}]
+### Delete file [DELETE /users/{username}/projects/{projectname}/files/{filepath}]
 
 Delete file content with given file path
 
 + Parameters
-    + projectid: 1 (string) - Specified the project id
     + filepath: "a/b/a" (string) - Specified the relative path with the project root
     
 + Response 200
