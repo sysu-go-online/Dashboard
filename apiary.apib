@@ -7,6 +7,23 @@ go-online is a simple online application which allows people code, run and test 
 
 ## User Collection [/users]
 
+### Login in [PATCH /users/{username}]
+
++ Request
+
+    + Headers
+        Token: "access_token"
+        
++ Response 200 (application/json)
+
+        {
+            "token": "access_token",
+            "name": "username"
+        }
+        
++ Response 401
+        
+
 ### Get user message [GET /users/{username}]
 
 + Response 200 (application/json)
