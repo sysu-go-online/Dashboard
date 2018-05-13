@@ -5,6 +5,14 @@ HOST: http://go-online/api
 
 go-online is a simple online application which allows people code, run and test anywhere.
 
+## Redirect Collection [/redirect]
+
+### Get post-auth page [GET /redirect/auth]
+
++ Response 200 (text/html)
+
+        "Return post operation for auth, including login close new window and reload parent window"
+
 ## OAuth2 Collection [/auth]
 
 ### Get authorization [GET /auth?code={code}&state={state}]
