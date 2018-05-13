@@ -5,6 +5,23 @@ HOST: http://go-online/api
 
 go-online is a simple online application which allows people code, run and test anywhere.
 
+## OAuth2 Collection [/auth]
+
+### Get authorization [GET /auth?code={code}&state={state}]
+
++ Response 200 (applocation/json)
+
+    + Headers
+    
+            Token: token
+    
+    + Body
+    
+            {
+                "name": "username",
+                "icon": "icon url"
+            }
+
 ## User Collection [/users]
 
 ### Login in [PATCH /users/{username}]
@@ -12,12 +29,12 @@ go-online is a simple online application which allows people code, run and test 
 + Request
 
     + Headers
-        Token: "access_token"
+    
+            Token: token
         
 + Response 200 (application/json)
 
         {
-            "token": "access_token",
             "name": "username"
         }
         
@@ -40,14 +57,12 @@ go-online is a simple online application which allows people code, run and test 
 
 ### Update user message [PATCH /user/{username}]
 
-+ Request
-    
-        + body (application/json)
-        
-                {
-                    "gender": 1,
-                    "age": 19
-                }
++ Request (application/json)
+
+        {
+            "gender": 1,
+            "age": 19
+        }
                 
 + Response 200
 
