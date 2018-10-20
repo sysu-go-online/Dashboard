@@ -1,13 +1,23 @@
 # 软件包列表
 
-## 所有镜像公共部分
-- git客户端
-- 端口监控程序
+## 共有软件包
 
-## golang默认镜像
-- go语言环境
+- git
 
-## c语言默认镜像
+## txzdream/go-online-golang_image
+
+- golang compiler
+
+## txzdream/go-online-cpp_image
+
 - g++
 - gcc
 - gdb
+
+## txzdream/go-online-python_image
+
+- python 3
+- python 2
+- pip
+
+## ubuntu
